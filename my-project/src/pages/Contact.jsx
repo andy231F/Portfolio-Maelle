@@ -1,9 +1,7 @@
 export default function Catfish() {
   return (
     <main className="min-h-screen bg-gray-100 text-gray-900">
-      {/* Navbar */}
-      <div id="navbar">{/* Import your Navbar component here */}</div>
-
+    
       {/* Introduction */}
       <section className="mx-auto max-w-5xl px-6 py-12 text-center">
         <h1 className="mb-3 text-5xl font-bold">Catfish</h1>
@@ -32,9 +30,9 @@ export default function Catfish() {
 
       {/* Main image */}
       <section className="mx-auto max-w-6xl px-6 pb-12">
-        <div className="overflow-hidden rounded-xl">
+        <div className="overflow-hidden rounded-xs">
           <img
-            src="/assets/images/landing_page/img_1.png"
+            src="/assets/images/landing_page/img_1.jpg"
             alt="Catfish project"
             className="h-auto w-full object-cover"
           />
@@ -44,7 +42,7 @@ export default function Catfish() {
       {/* Video */}
       <section className="mx-auto max-w-4xl px-6 pb-12">
         <video
-          className="w-full rounded-xl shadow-md"
+          className="w-full rounded-xs shadow-md"
           controls
           preload="metadata"
         >
@@ -58,19 +56,19 @@ export default function Catfish() {
         <img
           src="/assets/images/landing_page/img_1.png"
           alt="Catfish scene 1"
-          className="h-72 w-full rounded-xl object-cover"
+          className="h-72 w-full rounded-xs object-cover"
         />
 
         <img
           src="/assets/images/landing_page/img_2.png"
           alt="Catfish scene 2"
-          className="h-72 w-full rounded-xl object-cover"
+          className="h-72 w-full rounded-xs object-cover"
         />
 
         <img
           src="/assets/images/landing_page/img_3.png"
           alt="Catfish scene 3"
-          className="h-72 w-full rounded-xl object-cover"
+          className="h-72 w-full rounded-xs object-cover"
         />
       </section>
     </main>

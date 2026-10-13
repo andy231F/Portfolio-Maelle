@@ -1,20 +1,22 @@
+import Footer from "../components/Footer";
+
 export default function Catfish() {
   return (
     <main className="min-h-screen bg-black text-white">
       {/* Introduction */}
       <section className="mx-auto max-w-5xl px-6 py-12 text-center">
-        <h1 className="mb-3 text-4xl font-bold text-white">Catfish</h1>
+        <h1 className="mb-3 text-4xl font-bold">Catfish</h1>
 
-        <h2 className="mb-8 text-base font-medium text-white-600">
+        <h2 className="text-base font-medium text-white px-34 py-2">
           The story of a hidden love
         </h2>
 
-        <div className="mx-auto max-w-2xl space-y-4 text-lg leading-relaxed">
+        <div className="mx-auto max-w-4xl space-y-4 text-base leading-relaxed ">
           <p>
             Produced during my 4th year "Catfish", our personal anim'jam within
             in a week !
           </p>
-          <p>
+          <p className="py-4">
             The objective here was to make a short film with 4 other persons
             within 7 days. It was really challenging ! we had to think fast and
             take quick decisions.
@@ -28,8 +30,8 @@ export default function Catfish() {
       </section>
 
       {/* Main image */}
-      <section className="mx-auto max-w-6xl px-6 pb-12">
-        <div className="overflow-hidden rounded-xl">
+      <section className="mx-auto max-w-3xl px-6 pb-12">
+        <div className="overflow-hidden rounded-xs">
           <img
             src="../images/catfish/img_1.jpg"
             alt="Catfish project"
@@ -41,7 +43,7 @@ export default function Catfish() {
       {/* Video */}
       <section className="mx-auto max-w-4xl px-6 pb-12">
         <video
-          className="w-full rounded-xl shadow-md"
+          className="w-full rounded-xs shadow-md"
           controls
           preload="metadata"
         >
@@ -55,21 +57,23 @@ export default function Catfish() {
         <img
           src="../images/catfish/img_2.png"
           alt="Catfish scene 1"
-          className="h-72 w-full rounded-xl object-cover"
+          className="h-72 w-full rounded-xs object-cover"
         />
 
         <img
           src="../images/catfish/img_3.png"
           alt="Catfish scene 2"
-          className="h-72 w-full rounded-xl object-cover"
+          className="h-72 w-full rounded-xs object-cover"
         />
 
         <img
           src="../images/catfish/img_4.png"
           alt="Catfish scene 3"
-          className="h-72 w-full rounded-xl object-cover"
+          className="h-72 w-full rounded-xs object-cover"
         />
       </section>
+
+      <Footer />
     </main>
   );
 }

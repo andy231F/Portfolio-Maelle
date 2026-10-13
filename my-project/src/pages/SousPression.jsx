@@ -1,22 +1,20 @@
+import Footer from "../components/Footer";
+
 export default function SousPression() {
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* Navbar */}
-      <div id="navbar">{/* Import your Navbar component here */}</div>
-
-      {/* Introduction */}
       <section className="mx-auto max-w-5xl px-6 py-12 text-center">
-        <h1 className="mb-3 text-center text-4xl font-bold">Sous Pression</h1>
-        <h2 className="mb-8 text-base font-medium text-white">
+        <h1 className="mb-3 text-4xl font-bold">Sous Pression</h1>
+        <h2 className="text-base font-medium text-white px-34 py-2">
           My 5th year project, work in progress
         </h2>
 
-        <div className="mx-auto max-w-2xl text-base space-y-4 leading-relaxed">
+        <div className="mx-auto max-w-3xl text-base space-y-4 leading-relaxed">
           <p>
             For this project I'm mainly working on the visual developpement,
             backgrounds and compositing.
           </p>
-          <p>Story:</p>
+          <p className="Adorn-Engraved-Expanded py-4">Story:</p>
           <p className="italic">
             In the middle of a parisian party, Stud is pushed by her best
             friend, Jessica, to go buy some alcohol. Forced to team up with
@@ -27,107 +25,33 @@ export default function SousPression() {
         </div>
       </section>
 
+
       {/* images */}
 
       <section className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 pb-16 sm:grid-cols-2 lg:grid-cols-2">
-        <img
-          src="../images/sous-pression/img_1.jpg"
-          alt="Catfish scene 1"
-          className="h-72 w-full rounded-xl object-cover"
-        />
+        {Array.from({ length: 16 }, (_, i) => {
+          const index = i + 1;
+          const extension =
+            index === 2 ? "png" : index === 3 || index === 4 ? "jpg" : "jpg";
 
-        <img
-          src="../images/sous-pression/img_2.png"
-          alt="Catfish scene 2"
-          className="h-72 w-full rounded-xl object-cover"
-        />
-
-        <img
-          src="../images/sous-pression/img_3.jpg"
-          alt="Catfish scene 3"
-          className="h-72 w-full rounded-xl object-cover"
-        />
-
-        <img
-          src="../images/sous-pression/img_4.jpg"
-          alt="Catfish scene 4"
-          className="h-72 w-full rounded-xl object-cover"
-        />
-
-        <img
-          src="../images/sous-pression/img_5.jpg"
-          alt="Catfish scene 5"
-          className="h-72 w-full rounded-xl object-cover"
-        />
-
-        <img
-          src="../images/sous-pression/img_6.jpg"
-          alt="Catfish scene 6"
-          className="h-72 w-full rounded-xl object-cover"
-        />
-
-        <img
-          src="../images/sous-pression/img_7.jpg"
-          alt="Catfish scene 7"
-          className="h-72 w-full rounded-xl object-cover"
-        />
-
-        <img
-          src="../images/sous-pression/img_8.jpg"
-          alt="Catfish scene 8"
-          className="h-72 w-full rounded-xl object-cover"
-        />
-
-        <img
-          src="../images/sous-pression/img_9.jpg"
-          alt="Catfish scene 9"
-          className="h-72 w-full rounded-xl object-cover"
-        />
-
-        <img
-          src="../images/sous-pression/img_10.jpg"
-          alt="Catfish scene 10"
-          className="h-72 w-full rounded-xl object-cover"
-        />
-        <img
-          src="../images/sous-pression/img_11.jpg"
-          alt="Catfish scene 11"
-          className="h-72 w-full rounded-xl object-cover"
-        />
-
-        <img
-          src="../images/sous-pression/img_12.jpg"
-          alt="Catfish scene 12"
-          className="h-72 w-full rounded-xl object-cover"
-        />
-        <img
-          src="../images/sous-pression/img_13.jpg"
-          alt="Catfish scene 13"
-          className="h-72 w-full rounded-xl object-cover"
-        />
-
-        <img
-          src="../images/sous-pression/img_14.jpg"
-          alt="Catfish scene 14"
-          className="h-72 w-full rounded-xl object-cover"
-        />
-
-        <img
-          src="../images/sous-pression/img_15.jpg"
-          alt="Catfish scene 15"
-          className="h-72 w-full rounded-xl object-cover"
-        />
-
-        <img
-          src="../images/sous-pression/img_16.jpg"
-          alt="Catfish scene 16"
-          className="h-72 w-full rounded-xl object-cover"
-        />
+          return (
+            <div
+              key={index}
+              className="flex h-72 w-full items-center justify-center overflow-hidden rounded-xs"
+            >
+              <img
+                src={`../images/sous-pression/img_${index}.${extension}`}
+                alt={`Catfish scene ${index}`}
+                className="h-72 w-full rounded-xs object-cover"
+              />
+            </div>
+          );
+        })}
       </section>
 
       {/* Main image */}
       <section className="mx-auto max-w-6xl px-6 pb-12">
-        <div className="overflow-hidden rounded-xl">
+        <div className="overflow-hidden rounded-xs">
           <img
             src="../images/sous-pression/img_17.jpg"
             alt="Sous Pression scene 17"
@@ -135,6 +59,7 @@ export default function SousPression() {
           />
         </div>
       </section>
+      <Footer />
     </main>
   );
 }

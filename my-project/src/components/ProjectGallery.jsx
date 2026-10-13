@@ -1,7 +1,7 @@
 const projects = [
   {
     title: "Renne Animation Festival",
-    image: "../../images/landing_page/img_1.png",
+    image: "../../images/landing_page/img_1.jpg",
     link: "/rennes",
     alt: "Renne Animation Festival",
   },
@@ -41,12 +41,12 @@ import { Link } from "react-router-dom";
 
 export default function ProjectGallery() {
   return (
-    <section className="bg-[#111111] pt-12">
+    <section className="bg-[#000000] pt-12">
       <div className="mx-auto flex w-full max-w-[1200px] flex-col gap-12 px-6 pb-12">
         {[projects.slice(0, 3), projects.slice(3, 6)].map((row, rowIndex) => (
           <div
             key={rowIndex}
-            className="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-3"
+            className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3"
           >
             {row.map((project) => (
               <Link
