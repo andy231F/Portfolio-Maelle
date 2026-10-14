@@ -1,6 +1,22 @@
+import { useState } from "react";
+import Modal from "react-modal";
 import Footer from "../components/Footer";
 
 export default function Rennes() {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const images = [
+    { src: "../images/rennes/img_1.png", alt: "Rennes scene 1" },
+    { src: "../images/rennes/img_2.png", alt: "Rennes scene 2" },
+    { src: "../images/rennes/img_3.png", alt: "Rennes scene 3" },
+    { src: "../images/rennes/img_4.jpg", alt: "Rennes scene 4" },
+    { src: "../images/rennes/img_5.jpg", alt: "Rennes scene 5" },
+    { src: "../images/rennes/img_6.png", alt: "Rennes scene 6" },
+    { src: "../images/rennes/img_7.png", alt: "Rennes scene 7" },
+    { src: "../images/rennes/img_8.png", alt: "Rennes scene 8" },
+    { src: "../images/rennes/img_9.png", alt: "Rennes scene 9" },
+  ];
+
   return (
     <main className="min-h-screen bg-black text-white">
       <section className="mx-auto max-w-5xl px-6 py-12 text-center">
@@ -26,67 +42,18 @@ export default function Rennes() {
         </div>
       </section>
 
-      {/* les images par 3*/}
+      {/* les images*/}
 
-      {/* 1/3 */}
       <section className="mx-auto grid max-w-7xl grid-cols-1 gap-2 px-6 pb-16 sm:grid-cols-2 lg:grid-cols-3">
-        <img
-          src="../images/rennes/img_1.png"
-          alt="Rennes scene 1"
-          className="h-55 w-full rounded-xs object-cover"
-        />
-
-        <img
-          src="../images/rennes/img_2.png"
-          alt="Rennes scene 2"
-          className="h-55 w-full rounded-xs object-cover"
-        />
-
-        <img
-          src="../images/rennes/img_3.png"
-          alt="Rennes scene 3"
-          className="h-55 w-full rounded-xs object-cover"
-        />
-
-        {/* 2/3 */}
-
-        <img
-          src="../images/rennes/img_4.jpg"
-          alt="Rennes scene 4"
-          className="h-55 w-full rounded-xs object-cover"
-        />
-
-        <img
-          src="../images/rennes/img_5.jpg"
-          alt="Rennes scene 5"
-          className="h-55 w-full rounded-xs object-cover"
-        />
-
-        <img
-          src="../images/rennes/img_6.png"
-          alt="Rennes scene 6"
-          className="h-55 w-full rounded-xs object-cover"
-        />
-
-        {/* 3/3 */}
-
-        <img
-          src="../images/rennes/img_7.png"
-          alt="Rennes scene 7"
-          className="h-55 w-full rounded-xs object-cover"
-        />
-
-        <img
-          src="../images/rennes/img_8.png"
-          alt="Rennes scene 8"
-          className="h-55 w-full rounded-xs object-cover"
-        />
-
-        <img
-          src="../images/rennes/img_9.png"
-          alt="Rennes scene 9"
-          className="h-55 w-full rounded-xs object-cover"
-        />
+        {images.map((image) => (
+          <img
+            key={image.src}
+            src={image.src}
+            alt={image.alt}
+            onClick={() => setSelectedImage(image)}
+            className="h-55 w-full cursor-pointer rounded-xs object-cover transition-opacity hover:opacity-80"
+          />
+        ))}
       </section>
 
       {/* Video */}
@@ -100,6 +67,33 @@ export default function Rennes() {
           Your browser does not support HTML video.
         </video>
       </section>
+
+      <Modal
+        isOpen={!!selectedImage}
+        onRequestClose={() => setSelectedImage(null)}
+        contentLabel="Enlarged Rennes image"
+        overlayClassName="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+        className="relative max-h-[90vh] max-w-[90vw] outline-none"
+      >
+        {selectedImage && (
+          <>
+            <button
+              onClick={() => setSelectedImage(null)}
+              aria-label="Close image"
+              className="absolute -right-3 -top-3 z-10 rounded-full bg-white px-3 py-1 text-xl font-bold text-black hover:bg-[#F82173] hover:text-white"
+            >
+              &times;
+            </button>
+
+            <img
+              src={selectedImage.src}
+              alt={selectedImage.alt}
+              className="max-h-[85vh] max-w-[90vw] rounded-xs object-contain"
+            />
+          </>
+        )}
+      </Modal>
+
       <Footer />
     </main>
   );

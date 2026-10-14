@@ -4,7 +4,7 @@ export default function Footer() {
       <ul className="absolute bottom-5 flex w-full items-center justify-center gap-6 px-6 text-xs font-medium tracking-wide text-white sm:gap-8">
         <li>
           <a
-            href="https://www.linkedin.com/in/"
+            href="https://www.linkedin.com/in/ma%C3%ABlle-chaize-02524a240/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
@@ -31,8 +31,9 @@ export default function Footer() {
 
         <li>
           <a
-            href="#"
+            href="https://www.instagram.com/hollowdraw/"
             aria-label="Instagram"
+            target="_blank"
             rel="noopener noreferrer"
             className="group text-white transition-colors duration-300 hover:text-[#F82173]"
           >
@@ -68,7 +69,7 @@ export default function Footer() {
 
         <li>
           <a
-            href="#"
+            href="https://bsky.app/profile/aranwen03.bsky.social"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Bluesky"

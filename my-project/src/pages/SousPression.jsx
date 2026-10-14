@@ -1,6 +1,20 @@
+import { useState } from "react";
+import Modal from "react-modal";
 import Footer from "../components/Footer";
 
 export default function SousPression() {
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const images = Array.from({ length: 16 }, (_, i) => {
+    const index = i + 1;
+    const extension =
+      index === 2 ? "png" : index === 3 || index === 4 ? "jpg" : "jpg";
+
+    return {
+      src: `../images/sous-pression/img_${index}.${extension}`,
+      alt: `Sous Pression scene ${index}`,
+    };
+  });
   return (
     <main className="min-h-screen bg-black text-white">
       <section className="mx-auto max-w-5xl px-6 py-12 text-center">
@@ -25,7 +39,6 @@ export default function SousPression() {
         </div>
       </section>
 
-
       {/* images */}
 
       <section className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 pb-16 sm:grid-cols-2 lg:grid-cols-2">
@@ -41,8 +54,9 @@ export default function SousPression() {
             >
               <img
                 src={`../images/sous-pression/img_${index}.${extension}`}
-                alt={`Catfish scene ${index}`}
-                className="h-72 w-full rounded-xs object-cover"
+                alt={`Sous Pression scene ${index}`}
+                onClick={() => setSelectedImage(images[index - 1])}
+                className="h-72 w-full rounded-xs object-cover cursor-pointer hover:opacity-80"
               />
             </div>
           );
@@ -50,15 +64,49 @@ export default function SousPression() {
       </section>
 
       {/* Main image */}
+
       <section className="mx-auto max-w-6xl px-6 pb-12">
         <div className="overflow-hidden rounded-xs">
           <img
             src="../images/sous-pression/img_17.jpg"
             alt="Sous Pression scene 17"
-            className="h-auto w-full object-cover"
+            onClick={() =>
+              setSelectedImage({
+                src: "../images/sous-pression/img_17.jpg",
+                alt: "Sous Pression scene 17",
+              })
+            }
+            className="h-auto w-full cursor-pointer object-cover hover:opacity-80"
           />
         </div>
       </section>
+
+      <Modal
+        isOpen={!!selectedImage}
+        onRequestClose={() => setSelectedImage(null)}
+        contentLabel="Enlarged Sous Pression image"
+        overlayClassName="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
+        className="relative max-h-[90vh] max-w-[90vw] outline-none"
+      >
+        {selectedImage && (
+          <>
+            <button
+              onClick={() => setSelectedImage(null)}
+              aria-label="Close image"
+              className="absolute -right-3 -top-3 z-10 rounded-full bg-white px-3 py-1 text-xl font-bold text-black hover:bg-[#F82173] hover:text-white"
+            >
+              &times;
+            </button>
+
+            <img
+              src={selectedImage.src}
+              alt={selectedImage.alt}
+              className="max-h-[85vh] max-w-[90vw] rounded-xs object-contain"
+            />
+          </>
+        )}
+      </Modal>
+
       <Footer />
     </main>
   );

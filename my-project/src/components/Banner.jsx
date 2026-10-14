@@ -14,7 +14,7 @@ export default function Banner() {
       <div className="absolute inset-0 bg-purple-950/30" />
       <div className="absolute inset-0 bg-gradient-to-b from-purple-450/20 via-transparent to-purple-950/40" />
 
-      {/* Main centered text */}
+      {/* Main texts */}
       <div className="absolute inset-0 flex flex-col items-center justify-center px-6 pb-4 text-center text-white">
         <h1 className="text-5xl font-bold tracking-tight drop-shadow-lg sm:text-4xl md:text-7xl">
           Background
@@ -84,6 +84,7 @@ export default function Banner() {
           <a
             href="#"
             aria-label="Instagram"
+            target="_blank"
             rel="noopener noreferrer"
             className="group text-white transition-colors duration-300 hover:text-[#F82173]"
           >
