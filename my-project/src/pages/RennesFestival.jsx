@@ -1,61 +1,119 @@
 import { useState } from "react";
 import Modal from "react-modal";
 import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
 export default function Rennes() {
-  const [selectedImage, setSelectedImage] = useState(null);
-
   const images = [
-    { src: "../images/rennes/img_1.png", alt: "Rennes scene 1" },
-    { src: "../images/rennes/img_2.png", alt: "Rennes scene 2" },
-    { src: "../images/rennes/img_3.png", alt: "Rennes scene 3" },
-    { src: "../images/rennes/img_4.jpg", alt: "Rennes scene 4" },
-    { src: "../images/rennes/img_5.jpg", alt: "Rennes scene 5" },
-    { src: "../images/rennes/img_6.png", alt: "Rennes scene 6" },
-    { src: "../images/rennes/img_7.png", alt: "Rennes scene 7" },
-    { src: "../images/rennes/img_8.png", alt: "Rennes scene 8" },
-    { src: "../images/rennes/img_9.png", alt: "Rennes scene 9" },
+    {
+      src: "../images/rennes/img_1.png",
+      alt: "Rennes scene 1",
+      title: "Lorem ipsum",
+    },
+    {
+      src: "../images/rennes/img_2.png",
+      alt: "Rennes scene 2",
+      title: "Lorem ipsum",
+    },
+    {
+      src: "../images/rennes/img_3.png",
+      alt: "Rennes scene 3",
+      title: "Lorem ipsum",
+    },
+    {
+      src: "../images/rennes/img_4.jpg",
+      alt: "Rennes scene 4",
+      title: "Lorem ipsum",
+    },
+    {
+      src: "../images/rennes/img_5.jpg",
+      alt: "Rennes scene 5",
+      title: "Lorem ipsum",
+    },
+    {
+      src: "../images/rennes/img_6.png",
+      alt: "Rennes scene 6",
+      title: "Lorem ipsum",
+    },
+    {
+      src: "../images/rennes/img_7.png",
+      alt: "Rennes scene 7",
+      title: "Lorem ipsum",
+    },
+    {
+      src: "../images/rennes/img_8.png",
+      alt: "Rennes scene 8",
+      title: "Lorem ipsum",
+    },
+    {
+      src: "../images/rennes/img_9.png",
+      alt: "Rennes scene 9",
+      title: "Lorem ipsum",
+    },
   ];
+
+  const [selectedImageIndex, setSelectedImageIndex] = useState(null);
+
+  const selectedImage =
+    selectedImageIndex !== null ? images[selectedImageIndex] : null;
+
+  const showNextImage = () => {
+    setSelectedImageIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const showPreviousImage = () => {
+    setSelectedImageIndex((prev) => (prev - 1 + images.length) % images.length);
+  };
 
   return (
     <main className="min-h-screen bg-black text-white">
+      <Navbar />
       <section className="mx-auto max-w-5xl px-6 py-12 text-center">
         <h1 className="mb-3 text-4xl font-bold">Rennes animation festival</h1>
 
-        <h2 className="text-base font-medium text-white px-34 py-2">
+        <h2 className="px-34 py-2 text-base font-medium text-white">
           One of the many intros at the 2025 "National Animated Film Festival"
           in Rennes, France
         </h2>
 
-        <div className="mx-auto max-w-4xl space-y-4 text-base leading-relaxed ">
+        <div className="mx-auto max-w-4xl space-y-4 text-base leading-relaxed">
           <p>
             In my 4th year we had to make, competiting with other schools, an
             animated introduction based on the poster of the 2025 edition of
             "The National animated film festival". We had to make a vertical and
             an horizontal versions.
           </p>
+
           <p className="py-4">
             Our project was selected to be one of the intros before the
             screening !
           </p>
+
           <p>Here's some of the backgrounds I made for this 3 month project.</p>
         </div>
       </section>
-
-      {/* les images*/}
-
+      {/* Images gallery */}
       <section className="mx-auto grid max-w-7xl grid-cols-1 gap-2 px-6 pb-16 sm:grid-cols-2 lg:grid-cols-3">
-        {images.map((image) => (
-          <img
+        {images.map((image, index) => (
+          <div
             key={image.src}
-            src={image.src}
-            alt={image.alt}
-            onClick={() => setSelectedImage(image)}
-            className="h-55 w-full cursor-pointer rounded-xs object-cover transition-opacity hover:opacity-80"
-          />
+            className="group relative h-55 overflow-hidden rounded-xs"
+          >
+            <img
+              src={image.src}
+              alt={image.alt}
+              onClick={() => setSelectedImageIndex(index)}
+              className="h-55 w-full cursor-zoom-in object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+
+            <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-[#F82173]/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+              <p className="Adorn-Engraved-Expanded px-2 text-center text-xl text-white">
+                {image.title}
+              </p>
+            </div>
+          </div>
         ))}
       </section>
-
       {/* Video */}
       <section className="mx-auto max-w-4xl px-6 pb-12">
         <video
@@ -67,33 +125,57 @@ export default function Rennes() {
           Your browser does not support HTML video.
         </video>
       </section>
-
+      {/* Image modal */}
       <Modal
-        isOpen={!!selectedImage}
-        onRequestClose={() => setSelectedImage(null)}
+        isOpen={selectedImageIndex !== null}
+        onRequestClose={() => setSelectedImageIndex(null)}
+        shouldCloseOnOverlayClick={false}
+        shouldCloseOnEsc={false}
         contentLabel="Enlarged Rennes image"
         overlayClassName="fixed inset-0 z-50 flex items-center justify-center bg-black/90 p-4"
-        className="relative max-h-[90vh] max-w-[90vw] outline-none"
+        className="outline-none"
       >
         {selectedImage && (
           <>
             <button
-              onClick={() => setSelectedImage(null)}
+              onClick={() => setSelectedImageIndex(null)}
               aria-label="Close image"
-              className="absolute -right-3 -top-3 z-10 rounded-full bg-white px-3 py-1 text-xl font-bold text-black hover:bg-[#F82173] hover:text-white"
+              className="fixed right-6 top-6 z-[60] flex h-10 w-10 items-center justify-center rounded-full bg-white text-2xl font-bold text-black transition hover:bg-[#F82173] hover:text-white"
             >
               &times;
             </button>
 
-            <img
-              src={selectedImage.src}
-              alt={selectedImage.alt}
-              className="max-h-[85vh] max-w-[90vw] rounded-xs object-contain"
-            />
+            <button
+              onClick={showPreviousImage}
+              aria-label="Previous image"
+              className="fixed left-6 top-1/2 z-[60] flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-black/70 text-3xl text-white transition hover:bg-[#F82173]"
+            >
+              &#8249;
+            </button>
+
+            <div className="flex h-full w-full items-center justify-center">
+              <img
+                src={selectedImage.src}
+                alt={selectedImage.alt}
+                className="max-h-[85vh] max-w-[75vw] rounded-xs object-contain"
+              />
+            </div>
+
+            <button
+              onClick={showNextImage}
+              aria-label="Next image"
+              className="fixed right-6 top-1/2 z-[60] flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-black/70 text-3xl text-white transition hover:bg-[#F82173]"
+            >
+              &#8250;
+            </button>
+
+            <span className="fixed bottom-6 left-1/2 z-[60] -translate-x-1/2 rounded-full bg-black/70 px-3 py-1 text-sm text-white">
+              {selectedImageIndex + 1} / {images.length}
+            </span>
           </>
         )}
       </Modal>
-
+      
       <Footer />
     </main>
   );
