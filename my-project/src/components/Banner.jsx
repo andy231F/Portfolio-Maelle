@@ -1,81 +1,75 @@
 export default function Banner() {
-  const adobeApps = ["Ai", "Pr", "Ps", "Ae", "Ai", "Ps"];
+  const apps = [
+    { name: "After Effects", src: "/banner/ae.svg" },
+    { name: "Premiere Pro", src: "/banner/pr.svg" },
+    { name: "Photoshop", src: "/banner/ps.svg" },
+    { name: "Fresco", src: "/banner/fr.svg" },
+    { name: "Toon Boom Harmony", src: "/banner/harmony.svg" },
+    { name: "Blender", src: "/banner/blender.svg" },
+  ];
 
   return (
-    <section className="relative isolate h-[320px] w-full overflow-hidden sm:h-[360px] md:h-[420px]">
+    <section className="relative isolate h-[360px] w-full overflow-hidden sm:h-[400px] md:h-[420px]">
       {/* Background image */}
       <img
-        src="../../images/banner/banner.png"
-        className="absolute inset-0 h-full w-full object-cover object-center"
+        src="/images/banner/banner.png"
         alt="Creative portfolio banner"
+        className="absolute inset-0 h-full w-full object-cover object-center"
       />
 
-      {/*  sHadow on image */}
+      {/* Image overlays */}
       <div className="absolute inset-0 bg-purple-950/30" />
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-450/20 via-transparent to-purple-950/40" />
+      <div className="absolute inset-0 bg-gradient-to-b from-purple-950/20 via-transparent to-purple-950/50" />
 
       {/* Main texts */}
-      <div className="absolute inset-0 flex flex-col items-center justify-center px-6 pb-4 text-center text-white">
-        <h1 className="text-5xl font-bold tracking-tight drop-shadow-lg sm:text-4xl md:text-7xl">
+      <div className="absolute inset-0 flex flex-col items-center justify-center px-4 pb-8 text-center text-white">
+        <h1 className="text-4xl font-bold tracking-tight drop-shadow-lg sm:text-5xl md:text-7xl">
           Background
         </h1>
 
-        <h2 className="mt-2 text-xl font-medium tracking-wide drop-shadow-md sm:text-2xl md:text-3xl">
+        <h2 className="mt-2 text-lg font-medium tracking-wide drop-shadow-md sm:text-2xl md:text-3xl">
           Layout Artist
         </h2>
 
-        <h3 className="mt-3 text-sm font-light tracking-[0.2em] text-white/85 sm:text-base">
+        <h3 className="mt-3 text-xs font-light tracking-[0.15em] text-white/85 sm:text-base sm:tracking-[0.2em]">
           Line and color
         </h3>
       </div>
 
-      <div className="absolute left-6 bottom-15 flex flex-wrap gap-2 sm:left-8 sm:bottom-16">
-        {[
-          { name: "After Effects", src: "/banner/ae.svg" },
-          { name: "Premiere Pro", src: "/banner/pr.svg" },
-          { name: "Photoshop", src: "/banner/ps.svg" },
-          { name: "Fresco", src: "/banner/fr.svg" },
-          { name: "Toon Boom Harmony", src: "/banner/harmony.svg" },
-          { name: "Blender", src: "/banner/blender.svg" },
-        ].map((app, index) => (
+      {/* Software icons */}
+      <div className="absolute bottom-[68px] left-0 flex w-full flex-wrap justify-center gap-2 px-3 sm:bottom-[76px] sm:left-8 sm:w-auto sm:justify-start sm:px-0">
+        {apps.map((app) => (
           <div
-            key={`${app.name}-${index}`}
-            title={`${app.name}`}
-            className="flex h-9 w-9 items-center justify-center rounded-md border border-white/20 bg-purple-950/40 p-1.5 shadow-sm backdrop-blur-sm transition-transform duration-200 hover:-translate-y-1 sm:h-10 sm:w-10"
+            key={app.name}
+            title={app.name}
+            className="flex h-8 w-8 items-center justify-center rounded-md border border-white/20 bg-purple-950/40 p-1.5 shadow-sm backdrop-blur-sm transition-transform duration-200 hover:-translate-y-1 sm:h-10 sm:w-10"
           >
             <img
               src={app.src}
-              alt={`${app.name}`}
+              alt={app.name}
               className="h-full w-full object-contain"
             />
           </div>
         ))}
       </div>
 
-      <ul className="absolute bottom-5 left-0 flex w-full items-center justify-center gap-6 px-6 text-xs font-medium tracking-wide text-white sm:bottom-6 sm:gap-8 sm:text-sm">
+      {/* Social links */}
+      <ul className="absolute bottom-4 left-0 flex w-full list-none items-center justify-center gap-6 px-4 text-white sm:bottom-5 sm:gap-8">
         <li>
           <a
             href="https://www.linkedin.com/in/ma%C3%ABlle-chaize-02524a240/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="LinkedIn"
-            className="group text-white transition-colors duration-300 hover:text-[#F82173]"
+            className="group block transition-colors duration-300 hover:text-[#F82173]"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              fill="none"
               viewBox="0 0 24 24"
-              id="Logo-Linkedin--Streamline-Ionic-Filled"
-              height="24"
-              width="24"
-              className="transition-transform duration-300 group-hover:scale-110"
+              fill="currentColor"
+              className="h-5 w-5 transition-transform duration-300 group-hover:scale-110 sm:h-6 sm:w-6"
             >
-              <desc>Logo Linkedin Icon</desc>
-              <path
-                fill="currentColor"
-                d="M21.8789 0.24H2.2497C1.17715 0.24 0.24 1.01175 0.24 2.07175V21.7445c0 1.06575 0.93715 2.0155 2.0097 2.0155h19.62345c1.07835 0 1.8868 -0.95605 1.8868 -2.0155V2.07175C23.7663 1.01175 22.9515 0.24 21.8789 0.24ZM7.5307 19.84505h-3.3695V9.3687h3.3695v10.47635ZM5.9625 7.7758h-0.02415c-1.07835 0 -1.7766 -0.8027 -1.7766 -1.8075 0 -1.02325 0.71665 -1.8071 1.81915 -1.8071 1.10245 0 1.7771 0.7781 1.80125 1.8071 -0.0005 1.0048 -0.6988 1.8075 -1.81965 1.8075Zm13.88255 12.06925h-3.36945V14.1168c0 -1.37235 -0.4903 -2.31 -1.7094 -2.31 -0.93135 0 -1.4826 0.63 -1.7278 1.24375 -0.09185 0.22045 -0.1165 0.5208 -0.1165 0.8274v5.9671h-3.36945V9.3687h3.36945v1.45795c0.4903 -0.6983 1.2563 -1.7031 3.0387 -1.7031 2.2118 0 3.885 1.4579 3.885 4.60105l-0.00055 6.12045Z"
-                strokeWidth="0.5"
-              ></path>
+              <path d="M21.8789.24H2.2497C1.17715.24.24 1.01175.24 2.07175V21.7445c0 1.06575.93715 2.0155 2.0097 2.0155h19.62345c1.07835 0 1.8868-.95605 1.8868-2.0155V2.07175C23.7663 1.01175 22.9515.24 21.8789.24ZM7.5307 19.84505h-3.3695V9.3687h3.3695v10.47635ZM5.9625 7.7758h-.02415c-1.07835 0-1.7766-.8027-1.7766-1.8075 0-1.02325.71665-1.8071 1.81915-1.8071 1.10245 0 1.7771.7781 1.80125 1.8071-.0005 1.0048-.6988 1.8075-1.81965 1.8075Zm13.88255 12.06925H16.4756V14.1168c0-1.37235-.4903-2.31-1.7094-2.31-.93135 0-1.4826.63-1.7278 1.24375-.09185.22045-.1165.5208-.1165.8274v5.9671H9.552V9.3687h3.36945v1.45795c.4903-.6983 1.2563-1.7031 3.0387-1.7031 2.2118 0 3.885 1.4579 3.885 4.60105l-.00055 6.12045Z" />
             </svg>
           </a>
         </li>
@@ -83,62 +77,39 @@ export default function Banner() {
         <li>
           <a
             href="https://www.instagram.com/hollowdraw/"
-            aria-label="Instagram"
             target="_blank"
             rel="noopener noreferrer"
-            className="group text-white transition-colors duration-300 hover:text-[#F82173]"
+            aria-label="Instagram"
+            className="group block transition-colors duration-300 hover:text-[#F82173]"
           >
             <svg
-              role="img"
               xmlns="http://www.w3.org/2000/svg"
-              fill="none"
               viewBox="0 0 24 24"
-              id="Logo-Instagram--Streamline-Ionic-Filled"
-              height="24"
-              width="24"
-              className="transition-transform duration-300 group-hover:scale-110"
+              fill="currentColor"
+              className="h-5 w-5 transition-transform duration-300 group-hover:scale-110 sm:h-6 sm:w-6"
             >
-              <desc>Logo Instagram Icon</desc>
-              <path
-                fill="currentColor"
-                d="M16.8998 2.1998c1.2985 0.0039 2.54265 0.52145 3.4608 1.4396 0.9181 0.91815 1.4357 2.1623 1.43955 3.4608v9.7996c-0.00385 1.2985 -0.52145 2.54265 -1.43955 3.4608 -0.91815 0.9181 -2.1623 1.4357 -3.4608 1.43955H7.1002c-1.2985 -0.00385 -2.54265 -0.52145 -3.4608 -1.43955 -0.91815 -0.91815 -1.4357 -2.1623 -1.4396 -3.4608V7.1002c0.0039 -1.2985 0.52145 -2.54265 1.4396 -3.4608 0.91815 -0.91815 2.1623 -1.4357 3.4608 -1.4396h9.7996Zm0 -1.9598H7.1002C3.327 0.24 0.24 3.327 0.24 7.1002v9.7996C0.24 20.67295 3.327 23.76 7.1002 23.76h9.7996c3.77315 0 6.8602 -3.08705 6.8602 -6.8602V7.1002C23.76 3.327 20.67295 0.24 16.8998 0.24Z"
-                strokeWidth="0.5"
-              ></path>
-              <path
-                fill="currentColor"
-                d="M18.369 7.0993c-0.2907 0 -0.57485 -0.0862 -0.8166 -0.24775 -0.2417 -0.1615 -0.43015 -0.3911 -0.5414 -0.65965 -0.11125 -0.26855 -0.14035 -0.56415 -0.08365 -0.8493 0.05675 -0.2851 0.1967 -0.547 0.40225 -0.7526 0.2056 -0.20555 0.4675 -0.34555 0.75265 -0.40225 0.2851 -0.0567 0.5807 -0.0276 0.84925 0.0836 0.26865 0.1113 0.4982 0.2997 0.65965 0.54145 0.16155 0.2417 0.24775 0.5259 0.24775 0.8166 0.00045 0.19315 -0.0373 0.3845 -0.11105 0.56295 -0.0737 0.17855 -0.182 0.34075 -0.31855 0.47735 -0.1366 0.13655 -0.2988 0.2448 -0.4773 0.31855 -0.1785 0.0737 -0.36985 0.11145 -0.563 0.11105Z"
-                strokeWidth="0.5"
-              ></path>
-              <path
-                fill="currentColor"
-                d="M12.0006 8.0799c0.7753 0 1.5333 0.2299 2.1779 0.66065 0.6447 0.43075 1.1472 1.043 1.44385 1.75935 0.2967 0.7163 0.37435 1.50455 0.22305 2.26495 -0.15125 0.76045 -0.5246 1.45895 -1.0728 2.0072 -0.5483 0.5482 -1.2468 0.9216 -2.0072 1.07285 -0.76045 0.1513 -1.54865 0.07365 -2.26495 -0.2231 -0.7164 -0.29665 -1.3286 -0.7991 -1.7594 -1.4438 -0.43075 -0.64465 -0.66065 -1.4026 -0.66065 -2.1779 0.00115 -1.0394 0.41455 -2.03585 1.14945 -2.77075 0.73495 -0.73495 1.7314 -1.14835 2.77075 -1.14945Zm0 -1.95985c-1.16295 0 -2.2998 0.3449 -3.26675 0.99095 -0.967 0.64615 -1.7206 1.5645 -2.1656 2.63885 -0.44505 1.0745 -0.56155 2.2567 -0.3347 3.39735 0.22695 1.1406 0.78695 2.1883 1.60925 3.01065 0.8224 0.8223 1.87005 1.3823 3.01065 1.60925 1.14065 0.2269 2.32285 0.1104 3.39735 -0.3346 1.07445 -0.44505 1.99275 -1.1987 2.63885 -2.1657 0.64605 -0.96695 0.99095 -2.10375 0.99095 -3.2667 0 -1.55945 -0.6195 -3.0551 -1.7222 -4.1578s-2.59835 -1.72225 -4.1578 -1.72225Z"
-                strokeWidth="0.5"
-              ></path>
+              <path d="M16.8998 2.1998c1.2985.0039 2.54265.52145 3.4608 1.4396.9181.91815 1.4357 2.1623 1.43955 3.4608v9.7996c-.00385 1.2985-.52145 2.54265-1.43955 3.4608-.91815.9181-2.1623 1.4357-3.4608 1.43955H7.1002c-1.2985-.00385-2.54265-.52145-3.4608-1.43955-.91815-.91815-1.4357-2.1623-1.4396-3.4608V7.1002c.0039-1.2985.52145-2.54265 1.4396-3.4608.91815-.91815 2.1623-1.4357 3.4608-1.4396h9.7996Zm0-1.9598H7.1002C3.327.24.24 3.327.24 7.1002v9.7996C.24 20.67295 3.327 23.76 7.1002 23.76h9.7996c3.77315 0 6.8602-3.08705 6.8602-6.8602V7.1002C23.76 3.327 20.67295.24 16.8998.24Z" />
+              <path d="M12.0006 8.0799c.7753 0 1.5333.2299 2.1779.66065.6447.43075 1.1472 1.043 1.44385 1.75935.2967.7163.37435 1.50455.22305 2.26495-.15125.76045-.5246 1.45895-1.0728 2.0072-.5483.5482-1.2468.9216-2.0072 1.07285-.76045.1513-1.54865.07365-2.26495-.2231-.7164-.29665-1.3286-.7991-1.7594-1.4438-.43075-.64465-.66065-1.4026-.66065-2.1779.00115-1.0394.41455-2.03585 1.14945-2.77075.73495-.73495 1.7314-1.14835 2.77075-1.14945Zm0-1.95985c-1.16295 0-2.2998.3449-3.26675.99095-.967.64615-1.7206 1.5645-2.1656 2.63885-.44505 1.0745-.56155 2.2567-.3347 3.39735.22695 1.1406.78695 2.1883 1.60925 3.01065.8224.8223 1.87005 1.3823 3.01065 1.60925 1.14065.2269 2.32285.1104 3.39735-.3346 1.07445-.44505 1.99275-1.1987 2.63885-2.1657.64605-.96695.99095-2.10375.99095-3.2667 0-1.55945-.6195-3.0551-1.7222-4.1578s-2.59835-1.72225-4.1578-1.72225Z" />
+              <path d="M18.369 7.0993c-.2907 0-.57485-.0862-.8166-.24775-.2417-.1615-.43015-.3911-.5414-.65965-.11125-.26855-.14035-.56415-.08365-.8493.05675-.2851.1967-.547.40225-.7526.2056-.20555.4675-.34555.75265-.40225.2851-.0567.5807-.0276.84925.0836.26865.1113.4982.2997.65965.54145.16155.2417.24775.5259.24775.8166.00045.19315-.0373.3845-.11105.56295-.0737.17855-.182.34075-.31855.47735-.1366.13655-.2988.2448-.4773.31855-.1785.0737-.36985.11145-.563.11105Z" />
             </svg>
           </a>
         </li>
 
         <li>
           <a
-            href="https://www.instagram.com/hollowdraw/"
+            href="https://bsky.app/"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="Bluesky"
-            className="group text-white transition-colors duration-300 hover:text-[#F82173]"
+            className="group block transition-colors duration-300 hover:text-[#F82173]"
           >
             <svg
-              role="img"
               viewBox="0 0 24 24"
               xmlns="http://www.w3.org/2000/svg"
-              height="24"
-              width="24"
-              className="transition-transform duration-300 group-hover:scale-110"
+              fill="currentColor"
+              className="h-5 w-5 transition-transform duration-300 group-hover:scale-110 sm:h-6 sm:w-6"
             >
-              <title>Logo Bluesky Icon</title>
-              <path
-                d="M12 10.8c-1.087 -2.114 -4.046 -6.053 -6.798 -7.995C2.566 0.944 1.561 1.266 0.902 1.565 0.139 1.908 0 3.08 0 3.768c0 0.69 0.378 5.65 0.624 6.479 0.815 2.736 3.713 3.66 6.383 3.364 0.136 -0.02 0.275 -0.039 0.415 -0.056 -0.138 0.022 -0.276 0.04 -0.415 0.056 -3.912 0.58 -7.387 2.005 -2.83 7.078 5.013 5.19 6.87 -1.113 7.823 -4.308 0.953 3.195 2.05 9.271 7.733 4.308 4.267 -4.308 1.172 -6.498 -2.74 -7.078a8.741 8.741 0 0 1 -0.415 -0.056c0.14 0.017 0.279 0.036 0.415 0.056 2.67 0.297 5.568 -0.628 6.383 -3.364 0.246 -0.828 0.624 -5.79 0.624 -6.478 0 -0.69 -0.139 -1.861 -0.902 -2.206 -0.659 -0.298 -1.664 -0.62 -4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z"
-                fill="currentColor"
-              />
+              <path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z" />
             </svg>
           </a>
         </li>

@@ -10,11 +10,31 @@ export default function Arise() {
       alt: "Arise scene 1",
       title: "Scene 1",
     },
-    { src: "../images/arise/img_2.jpg", alt: "Arise scene 2", title: "Scene 2" },
-    { src: "../images/arise/img_3.png", alt: "Arise scene 3", title: "Scene 3" },
-    { src: "../images/arise/img_4.png", alt: "Arise scene 4", title: "Scene 4" },
-    { src: "../images/arise/img_5.png", alt: "Arise scene 5", title: "Scene 5" },
-    { src: "../images/arise/img_6.png", alt: "Arise scene 6", title: "Scene 6" },
+    {
+      src: "../images/arise/img_2.jpg",
+      alt: "Arise scene 2",
+      title: "Scene 2",
+    },
+    {
+      src: "../images/arise/img_3.png",
+      alt: "Arise scene 3",
+      title: "Scene 3",
+    },
+    {
+      src: "../images/arise/img_4.png",
+      alt: "Arise scene 4",
+      title: "Scene 4",
+    },
+    {
+      src: "../images/arise/img_5.png",
+      alt: "Arise scene 5",
+      title: "Scene 5",
+    },
+    {
+      src: "../images/arise/img_6.png",
+      alt: "Arise scene 6",
+      title: "Scene 6",
+    },
   ];
 
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
@@ -35,30 +55,32 @@ export default function Arise() {
       <Navbar />
 
       {/* Introduction */}
-      <section className="mx-auto max-w-5xl px-6 py-12 text-center">
-        <h1 className="mb-3 text-4xl font-bold">Arise</h1>
+      <section className="mx-auto max-w-5xl px-4 py-8 text-center sm:px-6 sm:py-12">
+        <h1 className="mb-3 text-3xl font-bold leading-tight sm:text-4xl">
+          Arise
+        </h1>
 
-        <h2 className="px-34 py-2 text-base font-medium">
+        <h2 className="mx-auto max-w-3xl px-2 py-2 text-sm font-medium sm:px-6 sm:text-base">
           Props concept for the video game "Arise".
         </h2>
 
-        <div className="mx-auto max-w-4xl space-y-4 text-base leading-relaxed">
+        <div className="mx-auto max-w-4xl space-y-4 text-sm leading-relaxed sm:text-base">
           <p>
-            For the end of my 3rd year I did one month internship for the studio
-            Hot Chili Games (a video Based on the script), I developped the
-            concept of the main character's house and some surrounding graphic
-            elements. Here is below the concepts I've done for the Video game
-            Arise.
+            At the end of my 3rd year, I completed a one-month internship at Hot
+            Chili Games, a video game studio. Based on the game's script, I
+            developed concepts for the main character's house and some
+            surrounding graphic elements. Here are the concepts I created for
+            the video game "Arise".
           </p>
 
-          <p className="py-4">
-            <span className="px-1 underline">Credit:</span>
-            Concept and lineart made by Maëlle Chaize
+          <p className="py-2 sm:py-4">
+            <span className="px-1 underline">Credits:</span> Concept and line
+            art by Maëlle Chaize.
           </p>
 
           <p>
-            Colour and various details made by the artist of the studio Hot
-            Chili Games, Victor Mauduy.
+            Colour and various details by Victor Mauduy, an artist at Hot Chili
+            Games.
           </p>
         </div>
       </section>

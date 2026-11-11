@@ -37,9 +37,7 @@ export default function Catfish() {
   };
 
   const showPreviousImage = () => {
-    setSelectedImageIndex(
-      (prev) => (prev - 1 + images.length) % images.length
-    );
+    setSelectedImageIndex((prev) => (prev - 1 + images.length) % images.length);
   };
 
   return (
@@ -47,34 +45,36 @@ export default function Catfish() {
       <Navbar />
 
       {/* Introduction */}
-      <section className="mx-auto max-w-5xl px-6 py-12 text-center">
-        <h1 className="mb-3 text-4xl font-bold">Catfish</h1>
+      <section className="mx-auto max-w-5xl px-4 py-8 text-center sm:px-6 sm:py-12">
+        <h1 className="mb-3 text-3xl font-bold leading-tight sm:text-4xl">
+          Catfish
+        </h1>
 
-        <h2 className="px-34 py-2 text-base font-medium">
+        <h2 className="mx-auto max-w-3xl px-2 py-2 text-sm font-medium sm:px-6 sm:text-base">
           The story of a hidden love
         </h2>
 
-        <div className="mx-auto max-w-4xl space-y-4 text-base leading-relaxed">
+        <div className="mx-auto max-w-4xl space-y-4 text-sm leading-relaxed sm:text-base">
           <p>
-            Produced during my 4th year "Catfish", our personal anim'jam within
-            in a week !
+            Produced during my 4th year, "Catfish" was our personal anim'jam,
+            completed within a week!
           </p>
 
-          <p className="py-4">
-            The objective here was to make a short film with 4 other persons
-            within 7 days. It was really challenging ! we had to think fast and
-            take quick decisions.
+          <p className="py-2 sm:py-4">
+            The objective was to make a short film with 4 other people in just 7
+            days. It was really challenging! We had to think fast and make quick
+            decisions.
           </p>
 
           <p>
-            I've contributed to many tasks such as concepts, backgrounds layout,
-            compositing... Here's the short film and some backgrounds I've
+            I contributed to many tasks, such as concept art, background layout,
+            and compositing. Here's the short film and some backgrounds I've
             created.
           </p>
         </div>
       </section>
 
-      {/* Main clickable image */}
+      {/* Main image */}
       <section className="mx-auto max-w-3xl px-6 pb-12">
         <img
           src={images[0].src}
@@ -96,7 +96,7 @@ export default function Catfish() {
         </video>
       </section>
 
-      {/* Three clickable background images */}
+      {/* Last three images */}
       <section className="mx-auto grid max-w-6xl grid-cols-1 gap-6 px-6 pb-16 sm:grid-cols-2 lg:grid-cols-3">
         {images.slice(1).map((image, index) => (
           <div
@@ -178,4 +178,4 @@ export default function Catfish() {
       <Footer />
     </main>
   );
-};
+}

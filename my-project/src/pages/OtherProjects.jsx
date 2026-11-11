@@ -57,7 +57,7 @@ export default function OtherProjects() {
       </section>
 
       {/* First two images */}
-      <section className="mx-auto grid max-w-6xl grid-cols-1 items-start gap-3 px-6 pb-3 sm:grid-cols-2">
+      <section className="mx-auto grid max-w-6xl items-start gap-3 px-6 pb-3 grid-cols-1 sm:grid-cols-2 md:grid-cols-2">
         {images.slice(0, 2).map((image, index) => (
           <div
             key={image.src}
@@ -80,19 +80,21 @@ export default function OtherProjects() {
       </section>
 
       {/* Images 3 and 4 */}
-      <section className="mx-auto flex max-w-6xl items-start gap-3 px-6 pb-16">
+      <section
+        className={`mx-auto grid max-w-6xl grid-cols-1 gap-3 px-4 pb-12 sm:px-6 sm:pb-16 ${
+          images.slice(2, 4).length > 1 ? "md:grid-cols-[2fr_1fr]" : ""
+        }`}
+      >
         {images.slice(2, 4).map((image, index) => (
           <div
             key={image.src}
-            className={`group relative min-w-0 overflow-hidden rounded-xs ${
-              index === 0 ? "flex-[4]" : "flex-[2]"
-            }`}
+            className="group relative min-w-0 overflow-hidden rounded-xs"
           >
             <img
               src={image.src}
               alt={image.alt}
               onClick={() => setSelectedImageIndex(index + 2)}
-              className={`h-auto rounded-xs ${imageClass}`}
+              className={`h-auto w-full rounded-xs ${imageClass}`}
             />
 
             <div className="pointer-events-none absolute inset-0 flex items-center justify-center bg-[#F82173]/70 opacity-0 transition-opacity duration-300 group-hover:opacity-100">

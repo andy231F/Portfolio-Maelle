@@ -68,30 +68,33 @@ export default function Rennes() {
   return (
     <main className="min-h-screen bg-black text-white">
       <Navbar />
-      <section className="mx-auto max-w-5xl px-6 py-12 text-center">
-        <h1 className="mb-3 text-4xl font-bold">Rennes animation festival</h1>
+      <section className="mx-auto max-w-5xl px-4 py-8 text-center sm:px-6 sm:py-12">
+        <h1 className="mb-3 text-3xl font-bold leading-tight sm:text-4xl">
+          Rennes animation festival
+        </h1>
 
-        <h2 className="px-34 py-2 text-base font-medium text-white">
+        <h2 className="mx-auto max-w-3xl px-2 py-2 text-sm font-medium leading-relaxed text-white sm:px-6 sm:text-base">
           One of the many intros at the 2025 "National Animated Film Festival"
           in Rennes, France
         </h2>
 
-        <div className="mx-auto max-w-4xl space-y-4 text-base leading-relaxed">
+        <div className="mx-auto max-w-4xl space-y-4 text-sm leading-relaxed sm:text-base">
           <p>
-            In my 4th year we had to make, competiting with other schools, an
+            In my 4th year, we had to make, competing with other schools, an
             animated introduction based on the poster of the 2025 edition of
-            "The National animated film festival". We had to make a vertical and
-            an horizontal versions.
+            "The National Animated Film Festival". We had to make vertical and
+            horizontal versions.
           </p>
 
-          <p className="py-4">
+          <p className="py-2 sm:py-4">
             Our project was selected to be one of the intros before the
-            screening !
+            screening!
           </p>
 
-          <p>Here's some of the backgrounds I made for this 3 month project.</p>
+          <p>Here's some of the backgrounds I made for this 3-month project.</p>
         </div>
       </section>
+      
       {/* Images gallery */}
       <section className="mx-auto grid max-w-7xl grid-cols-1 gap-2 px-6 pb-16 sm:grid-cols-2 lg:grid-cols-3">
         {images.map((image, index) => (
@@ -175,7 +178,6 @@ export default function Rennes() {
           </>
         )}
       </Modal>
-      
       <Footer />
     </main>
   );
